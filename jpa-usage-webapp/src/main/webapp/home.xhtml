@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>JPA Usage</title>
+</h:head>
+<h:body>
+    <h2>JPA Usage</h2>
+    <h:form id="jpaForm">
+        <h:commandButton value="Persist" action="#{homeBackingBean.persist}"/>
+        <h:commandButton value="LoadAll" action="#{homeBackingBean.loadAll}"/>
+        <h:inputText value="#{homeBackingBean.idToDelete}"/>
+        <h:commandButton value="Delete" action="#{homeBackingBean.delete}"/>
+        <h:commandButton value="Remove" action="#{homeBackingBean.remove}"/>
+    </h:form>
+    <h:dataTable id="jpaTable" value="#{homeBackingBean.rootEntities}" var="rootEntity" border="1">
+        <f:facet name="header">
+            <h:outputText value="Loaded root entities:" />
+        </f:facet>
+        <h:column>
+            <h:outputText value="#{rootEntity.id}"/>
+        </h:column>
+        <h:column>
+            <h:outputText value="#{rootEntity.field1}"/>
+        </h:column>
+        <h:column>
+            <h:outputText value="#{rootEntity.field2}"/>
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>
